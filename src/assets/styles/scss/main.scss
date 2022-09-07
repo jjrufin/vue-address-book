@@ -1,0 +1,128 @@
+/* Main stylesheet to import global styles and settings */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	position: relative;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+body {
+	background-color: #f5f5f5;
+}
+
+.container {
+	max-width: 60rem;
+	margin: 0 auto;
+}
+
+
+/* Text Styles */
+@mixin h1 {
+	font-size: 28px;
+	font-weight: bold;
+	@media screen and (min-width: 769px){
+		font-size: 32px;
+	}
+}
+@mixin h2 {
+	font-size: 20px;
+	font-weight: bold;
+	@media screen and (min-width: 769px) {
+		font-size: 24px;
+	}
+}
+
+@mixin h3 {
+	font-weight: 14px;
+	font-weight: bold;
+	@media screen and (min-width: 769px) {
+		font-size: 16px;
+	}
+}
+
+/* colors */
+
+$alert: #f14668;
+$white: #ffffff;
+$brand-light: #DEE5E5;
+$brand-light--secondary: #9DC5BB;
+$brand-neutral: #17B890;
+$brand-dark: #5E807F;
+$brand-dark--secondary: #082D0F;
+
+$text-primary: #363636;
+
+/* Button Styling */
+.button {
+	cursor: pointer;
+	width: auto;
+	padding: 8px 12px;
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #DEE5E5;;
+	&--confirm {
+		color: $white;
+		background-color: $brand-neutral;
+	}
+	&--close-x {
+		padding: 4px 8px;
+		background-color: transparent
+	}
+	&--delete {
+		color: $white;
+		background: $alert;
+	}
+}
+
+/* Modal Styling */
+.modal {
+	border-radius: 6px;
+	background: #fff;
+}
+
+@mixin input-place-holder {
+	color: $text-primary;
+	font-size: 14px;
+	opacity: .5;
+}
+
+form {
+	label {
+		font-weight: bold;
+		color: $text-primary;
+		display: flex;
+		padding-bottom: 8px;
+		font-size: 16px;
+	}
+
+	input[type=text], input[type=password] {
+		border-color: #dbdbdb;
+		color: $text-primary;
+		border-radius: 4px;
+		padding: 8px 12px;
+		width: 100%;
+	}
+
+	select {
+		padding: 8px 12px;
+	}
+
+	::-webkit-input-placeholder { /* Edge */
+		@include input-place-holder;
+	}
+	
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		@include input-place-holder;
+	}
+	
+	::placeholder {
+		@include input-place-holder;
+	}
+}
